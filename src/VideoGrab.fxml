@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VideoGrabController">
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" bottom="10"/>
+            </padding>
+            <Label text="VidéoScramble" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Label fx:id="keyLabel" text="Key: Not Set | Mode: Waiting" style="-fx-font-size: 14px;"/>
+
+            <!-- Key input field -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="Modify Key:" style="-fx-font-size: 12px;"/>
+                <TextField fx:id="keyTextField" promptText="Enter key" prefWidth="150" onAction="#onKeyChanged"/>
+                <Label text="(Press Enter to apply)" style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox alignment="CENTER" spacing="20">
+            <padding>
+                <Insets left="10" right="10"/>
+            </padding>
+            <VBox alignment="CENTER">
+                <Label text="Input (Original/Scrambled)"/>
+                <ImageView fx:id="originalFrame" fitWidth="480" preserveRatio="true"/>
+            </VBox>
+
+            <Separator orientation="VERTICAL" />
+
+            <VBox alignment="CENTER">
+                <Label text="Output (Processed)"/>
+                <ImageView fx:id="processedFrame" fitWidth="480" preserveRatio="true"/>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="center">
+            <padding>
+                <Insets bottom="25" left="25" right="25" top="25" />
+            </padding>
+            <Button fx:id="button" alignment="center" onAction="#startProcess" text="Start Processing" />
+        </HBox>
+    </bottom>
+</BorderPane>
